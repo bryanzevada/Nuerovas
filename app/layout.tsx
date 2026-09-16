@@ -10,13 +10,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
+  metadataBase: new URL(siteConfig.siteUrl),
   title: "Bryan | AI Websites & Automation for Local Businesses",
   description: siteConfig.description,
   openGraph: {
     title: "Bryan | AI Websites & Automation for Local Businesses",
     description: siteConfig.description,
-    url: "https://example.com",
+    url: siteConfig.siteUrl,
     siteName: siteConfig.brandName,
     type: "website",
   },
