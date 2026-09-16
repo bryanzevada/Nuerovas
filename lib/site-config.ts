@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Bryan",
   brandName: "Bryan | AI Websites & Automation",
-  siteUrl: "https://bryanzevada.github.io/Nuerovas/",
+  siteUrl: "https://nuerovas.com/",
   description:
     "Local website and AI automation help for small businesses that want better lead capture, faster follow-up, and less repetitive admin work.",
   email: "hello@example.com",
