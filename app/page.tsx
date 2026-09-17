@@ -22,6 +22,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
+import { CrmCarousel } from "@/components/crm-carousel";
 import { Header } from "@/components/header";
 import { siteConfig } from "@/lib/site-config";
 
@@ -100,6 +101,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <CrmIntegrations />
         <CustomerProblems />
         <Outcomes />
         <ProductMap />
@@ -112,6 +114,24 @@ export default function Home() {
       </main>
       <Footer />
     </>
+  );
+}
+
+function CrmIntegrations() {
+  return (
+    <section className="bg-paper py-16 sm:py-20" id="crm-integrations">
+      <div className="section-shell">
+        <div className="grid gap-6 lg:grid-cols-[0.7fr_1fr] lg:items-end lg:gap-16">
+          <div>
+            <p className="eyebrow">04 / Your tools, connected</p>
+            <h2 className="section-title">Your CRM is where our automations and AI support come together.</h2>
+          </div>
+          <p className="max-w-2xl text-base leading-7 text-muted">We integrate your website, forms, callbacks, conversations, and appointments with the CRM your team already uses. If you are starting fresh, we can set up a private-label Nuerovas workspace around your workflow.</p>
+        </div>
+        <CrmCarousel />
+        <p className="mt-5 text-xs leading-5 text-muted">Compatibility and available automations vary by platform, plan, permissions, and API access. We confirm the right setup during your strategy call.</p>
+      </div>
+    </section>
   );
 }
 
@@ -145,7 +165,7 @@ function Hero() {
         </div>
       </div>
 
-      <figure className="relative mt-8 aspect-[4/3] w-full overflow-hidden sm:mt-10 sm:aspect-[16/9]">
+      <figure className="relative mt-8 aspect-[16/10] w-full overflow-hidden sm:mt-10 sm:aspect-[2/1] lg:aspect-[2.2/1]">
         <Image
           src="/media/local-service-workday-v2.png"
           alt="Local service professional checking a customer inquiry beside an open work van"
