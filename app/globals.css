@@ -98,6 +98,7 @@ h1, h2, h3 {
 
 .crm-marquee {
   animation: crm-marquee 34s linear infinite;
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {

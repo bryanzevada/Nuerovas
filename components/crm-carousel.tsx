@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Check, PlugZap } from "lucide-react";
 
 type Crm = { name: string; logo?: string; alt?: string; wordmark?: string };
 
@@ -30,13 +29,6 @@ export function CrmCarousel() {
             )}
           </div>
         ))}
-      </div>
-      <div className="relative z-20 mx-5 mt-7 flex flex-col gap-5 rounded-xl border border-blue/20 bg-blue-soft/95 p-5 shadow-soft backdrop-blur sm:mx-auto sm:max-w-3xl sm:flex-row sm:items-center sm:justify-between sm:p-6">
-        <div className="flex items-start gap-3">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white text-blue-deep"><PlugZap aria-hidden className="h-4 w-4" /></span>
-          <p className="max-w-xl text-sm leading-6 text-muted"><span className="font-semibold text-ink">We integrate the systems behind your customer journey.</span> Bring your existing CRM, or let Nuerovas set up a private-label workspace with automations, AI support, callbacks, and booking workflows ready for your team.</p>
-        </div>
-        <div className="flex shrink-0 items-center gap-2 text-xs font-semibold text-success"><Check aria-hidden className="h-4 w-4" /> Human-reviewed setup</div>
       </div>
     </div>
   );
