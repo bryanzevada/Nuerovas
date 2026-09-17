@@ -19,7 +19,7 @@ export function Header() {
       >
         <Link href="#" className="flex items-center gap-2.5" onClick={closeMenu} aria-label="Nuerovas home">
           <Image src="/brand/nuerovas-orbit-mark.png" width={38} height={38} alt="" priority className="rounded-full bg-white ring-1 ring-white/20" />
-          <span className="text-base font-semibold text-white">{siteConfig.name}</span>
+          <span className="text-base font-semibold uppercase tracking-[0.08em] text-white">{siteConfig.name}</span>
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
