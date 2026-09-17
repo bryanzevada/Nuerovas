@@ -3,7 +3,7 @@ export const siteConfig = {
   brandName: "Nuerovas",
   siteUrl: "https://nuerovas.com/",
   description:
-    "Turn more inquiries into booked work with a clearer website, faster follow-up, and practical automation built for local service businesses.",
+    "Nuerovas builds high-quality websites, practical automations, and helpful AI agents that turn customer conversations into growth.",
   email: "hello@example.com",
   phone: "(555) 123-4567",
   bookingUrl: "https://example.com/book-audit",
@@ -13,11 +13,12 @@ export const siteConfig = {
   nav: [
     { label: "Services", href: "#services" },
     { label: "How it works", href: "#how-it-works" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Industries", href: "#industries" },
+    { label: "About", href: "#about" },
+    { label: "Contact", href: "#contact" },
   ],
   cta: {
-    primary: "Get a Free Workflow Review",
+    primary: "Book a Strategy Call",
   },
 };
 

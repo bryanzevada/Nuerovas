@@ -9,19 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#172033",
-        muted: "#5b6678",
-        line: "#dbe3ec",
-        paper: "#fbfaf7",
+        ink: "#071B4D",
+        muted: "#526077",
+        line: "#DCE4F0",
+        paper: "#F7F9FC",
         panel: "#ffffff",
         blue: {
-          DEFAULT: "#2f6f9f",
-          deep: "#1f557d",
-          soft: "#e7f1f8",
+          DEFAULT: "#1769FF",
+          deep: "#0B245F",
+          soft: "#EEF0FF",
         },
         warm: {
-          DEFAULT: "#c87944",
-          soft: "#f8eadf",
+          DEFAULT: "#22C7E6",
+          soft: "#E8FBFE",
         },
       },
       boxShadow: {
@@ -29,6 +29,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
     },
   },

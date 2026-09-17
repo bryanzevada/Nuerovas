@@ -121,15 +121,15 @@ function Hero() {
       <div className="section-shell pb-2 pt-10 sm:pt-14 lg:pt-16">
         <div className="grid gap-8 lg:grid-cols-[1.18fr_0.72fr] lg:items-end lg:gap-16">
           <div>
-            <p className="eyebrow">For local service businesses</p>
+            <p className="eyebrow">Websites · automation · useful AI</p>
             <h1 className="mt-4 max-w-5xl text-4xl font-medium leading-[1.02] text-ink sm:mt-5 sm:text-6xl lg:text-7xl lg:leading-[0.98]">
-              Turn more inquiries into booked work.
+              Turn more customer conversations into growth.
             </h1>
           </div>
           <div className="border-l border-line pl-5 lg:pb-1 lg:pl-6">
             <p className="text-base leading-7 text-muted sm:text-lg sm:leading-8">
-              Give customers clear answers, respond to new leads faster, and keep every opportunity
-              moving without adding more repetitive work to your day.
+              We build the website and connected workflows that help your business respond faster,
+              capture better leads, and make the next step easy.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
               <Link href={siteConfig.bookingUrl} className="button-primary">
@@ -137,7 +137,7 @@ function Hero() {
                 {siteConfig.cta.primary}
               </Link>
               <Link href="#how-it-works" className="button-secondary">
-                See the process
+                See what we build
                 <ArrowRight aria-hidden className="h-4 w-4" />
               </Link>
             </div>
@@ -145,16 +145,23 @@ function Hero() {
         </div>
       </div>
 
-      <figure className="relative mt-8 h-[330px] w-full overflow-hidden sm:mt-10 sm:h-[460px] lg:h-[52vh] lg:min-h-[500px] lg:max-h-[620px]">
+      <figure className="relative mt-8 aspect-[4/3] w-full overflow-hidden sm:mt-10 sm:aspect-[16/9]">
         <Image
-          src="/media/local-service-workday.webp"
-          alt="Home service professional reviewing a customer request beside a service van"
+          src="/media/local-service-workday-v2.png"
+          alt="Local service professional checking a customer inquiry beside an open work van"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[60%_48%] opacity-90 sm:object-[58%_48%]"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-ink/20" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/5 to-transparent" aria-hidden />
+        <div className="section-shell absolute inset-0 flex items-start pt-5 sm:pt-8">
+          <div className="hidden max-w-[220px] rounded-xl border border-white/30 bg-ink/80 p-4 text-white shadow-soft backdrop-blur-md sm:block">
+            <div className="flex items-center gap-2 text-xs font-semibold text-white/75"><span className="h-2 w-2 rounded-full bg-warm" /> New customer inquiry</div>
+            <p className="mt-3 text-sm font-semibold">Callback requested</p>
+            <p className="mt-1 text-xs leading-5 text-white/70">The right details are ready when your team is.</p>
+          </div>
+        </div>
         <div className="section-shell absolute inset-0 flex items-end pb-5 sm:pb-7">
           <figcaption className="grid w-full gap-4 border border-white/15 bg-ink/82 px-5 py-4 text-white shadow-soft backdrop-blur-md sm:grid-cols-[0.8fr_1fr] sm:items-center sm:px-6 sm:py-5">
             <div>
@@ -316,7 +323,7 @@ function ProductMap() {
   ];
 
   return (
-    <section className="border-y border-line bg-white py-16 sm:py-20" id="product-map">
+    <section className="border-y border-line bg-white py-16 sm:py-20" id="industries">
       <div className="section-shell">
         <div className="grid gap-6 lg:grid-cols-[0.78fr_1fr] lg:items-end">
           <div>
@@ -521,7 +528,7 @@ function Contact() {
 
 function BrandShowcase() {
   return (
-    <section className="border-t border-white/10 bg-ink py-14 text-white sm:py-20" aria-label="Nuerovas brand showcase" id="brand-showcase">
+    <section className="border-t border-white/10 bg-ink py-14 text-white sm:py-20" aria-label="About Nuerovas" id="about">
       <div className="section-shell">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>

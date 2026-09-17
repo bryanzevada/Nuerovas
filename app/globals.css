@@ -19,6 +19,10 @@ body {
   min-height: 100vh;
 }
 
+h1, h2, h3 {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+
 ::selection {
   background: #d9ecf7;
 }
@@ -46,10 +50,47 @@ body {
   }
 
   .button-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-deep;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-deep;
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center gap-2 border border-line bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:border-blue/40 hover:text-blue-deep;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-ink bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:border-blue hover:text-blue-deep;
   }
+}
+
+.hero-orbit {
+  background: #0b245f;
+}
+
+.orbit-grid {
+  opacity: .18;
+  background-image: linear-gradient(rgba(255,255,255,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.13) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.orbit-glow {
+  background: radial-gradient(circle at 62% 48%, rgba(47,128,255,.42), transparent 24%), radial-gradient(circle at 78% 15%, rgba(91,75,219,.32), transparent 30%);
+}
+
+.orbit-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(78vw, 720px);
+  aspect-ratio: 2.8 / 1;
+  border: 1px solid rgba(47,128,255,.65);
+  border-radius: 50%;
+  transform: translate(-44%, -50%) rotate(-22deg);
+  box-shadow: 0 0 32px rgba(47,128,255,.12);
+}
+
+.orbit-ring-two {
+  width: min(62vw, 570px);
+  border-color: rgba(34,199,230,.5);
+  transform: translate(-42%, -50%) rotate(28deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
