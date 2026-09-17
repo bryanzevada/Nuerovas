@@ -1,15 +1,21 @@
 import {
+  ArrowDown,
   ArrowRight,
   Bot,
+  BrainCircuit,
   CalendarCheck,
+  CalendarDays,
   Check,
   CircleCheck,
   Clock3,
+  Database,
   Globe2,
+  Inbox,
   MessageSquareText,
   PhoneCall,
   RefreshCcw,
   ShieldCheck,
+  UserRoundCheck,
   Workflow,
   Zap,
 } from "lucide-react";
@@ -96,6 +102,7 @@ export default function Home() {
         <Hero />
         <CustomerProblems />
         <Outcomes />
+        <ProductMap />
         <HowItWorks />
         <CustomerJourney />
         <Pricing />
@@ -251,12 +258,135 @@ function Outcomes() {
   );
 }
 
+function ProductMap() {
+  const stages = [
+    {
+      label: "Your customer",
+      icon: Globe2,
+      title: "Reaches out the usual way",
+      description: "Your website, phone number, forms, and referrals keep working as they do today.",
+      items: ["Website visit", "Call or missed call", "Quote request"],
+      tone: "bg-white",
+      iconTone: "bg-paper text-ink",
+    },
+    {
+      label: "Smart response",
+      icon: BrainCircuit,
+      title: "AI handles the first mile",
+      description: "The customer is acknowledged, common questions are answered, and useful details are collected.",
+      items: ["Approved answers", "Lead qualification", "Instant follow-up"],
+      tone: "border-blue/30 bg-blue-soft",
+      iconTone: "bg-blue text-white",
+    },
+    {
+      label: "Your existing tools",
+      icon: Database,
+      title: "Information goes where it belongs",
+      description: "Lead details can move into the inbox, calendar, CRM, or workflow your team already knows.",
+      items: ["Inbox or CRM", "Calendar or booking", "Owner notification"],
+      tone: "bg-white",
+      iconTone: "bg-paper text-ink",
+    },
+    {
+      label: "Your team",
+      icon: UserRoundCheck,
+      title: "People step in with context",
+      description: "Your team gets the details needed to call back, prepare a quote, or confirm the next step.",
+      items: ["Faster callback", "Better handoff", "More booked work"],
+      tone: "border-warm/35 bg-warm-soft",
+      iconTone: "bg-warm text-white",
+    },
+  ];
+  const benefits = [
+    {
+      icon: Inbox,
+      title: "Respond sooner",
+      description: "New inquiries receive an immediate, useful acknowledgement.",
+    },
+    {
+      icon: CalendarDays,
+      title: "Keep leads moving",
+      description: "Customers reach a booking or callback step with less waiting.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Keep humans in control",
+      description: "Your team owns pricing, policies, judgment, and final decisions.",
+    },
+  ];
+
+  return (
+    <section className="border-y border-line bg-white py-16 sm:py-20" id="product-map">
+      <div className="section-shell">
+        <div className="grid gap-6 lg:grid-cols-[0.78fr_1fr] lg:items-end">
+          <div>
+            <p className="eyebrow">03 / How the system fits</p>
+            <h2 className="section-title">Your business stays familiar. The customer journey gets smarter.</h2>
+          </div>
+          <p className="max-w-2xl text-base leading-7 text-muted lg:justify-self-end">
+            This is not a rip-and-replace platform. It adds a responsive layer between the ways
+            customers already reach you and the tools your team already uses.
+          </p>
+        </div>
+
+        <div className="mt-10 grid items-stretch gap-3 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr]">
+          {stages.map((stage, index) => {
+            const Icon = stage.icon;
+            return (
+              <div key={stage.label} className="contents">
+                <article className={`flex min-w-0 flex-col border border-line p-5 sm:p-6 ${stage.tone}`}>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className={`grid h-10 w-10 place-items-center ${stage.iconTone}`}>
+                      <Icon aria-hidden className="h-5 w-5" />
+                    </span>
+                    <span className="text-xs font-semibold tabular-nums text-muted">0{index + 1}</span>
+                  </div>
+                  <p className="mt-6 text-xs font-semibold uppercase tracking-[0.1em] text-blue-deep">{stage.label}</p>
+                  <h3 className="mt-2 text-lg font-semibold leading-6 text-ink">{stage.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">{stage.description}</p>
+                  <ul className="mt-6 divide-y divide-line border-t border-line">
+                    {stage.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2 py-2.5 text-xs font-medium text-ink">
+                        <Check aria-hidden className="h-3.5 w-3.5 shrink-0 text-blue" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+                {index < stages.length - 1 ? (
+                  <div className="grid place-items-center py-1 text-warm" aria-hidden>
+                    <ArrowDown className="h-5 w-5 lg:hidden" />
+                    <ArrowRight className="hidden h-5 w-5 lg:block" />
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-6 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-3">
+          {benefits.map((benefit) => {
+            const BenefitIcon = benefit.icon;
+            return (
+              <div key={benefit.title} className="bg-paper p-5">
+                <BenefitIcon aria-hidden className="h-5 w-5 text-blue-deep" />
+                <p className="mt-3 text-sm font-semibold text-ink">{benefit.title}</p>
+                <p className="mt-1 text-xs leading-5 text-muted">{benefit.description}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HowItWorks() {
   return (
     <section className="bg-white py-16 sm:py-20" id="how-it-works">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.62fr_1fr] lg:gap-16">
         <div>
-          <p className="eyebrow">03 / How it works</p>
+          <p className="eyebrow">04 / How it works</p>
           <h2 className="section-title">Start with the bottleneck, not the technology.</h2>
           <p className="mt-5 text-base leading-7 text-muted">The first conversation is about your customers and daily workflow. The tools come after the problem is clear.</p>
         </div>
@@ -279,7 +409,7 @@ function CustomerJourney() {
     <section className="border-y border-line bg-ink py-16 text-white sm:py-20" id="ai-assistants">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-center">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-warm-soft">04 / Support without guesswork</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-warm-soft">05 / Support without guesswork</p>
           <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">Helpful answers, with a person always in reach.</h2>
           <p className="mt-5 max-w-xl text-base leading-7 text-white/68">An AI website assistant can answer approved questions, collect lead details, and guide visitors to booking. It never invents prices, policies, availability, or guarantees.</p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -316,7 +446,7 @@ function Pricing() {
     <section className="bg-paper py-16 sm:py-20" id="pricing">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-start">
         <div>
-          <p className="eyebrow">05 / Straightforward investment</p>
+          <p className="eyebrow">06 / Straightforward investment</p>
           <h2 className="section-title">Start with a better website. Improve it as you grow.</h2>
           <p className="mt-5 text-base leading-7 text-muted">A focused first version with ongoing support, without a long-term commitment.</p>
         </div>
@@ -353,7 +483,7 @@ function Faq() {
     <section className="bg-white py-16 sm:py-20" id="faq">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.55fr_1fr] lg:gap-16">
         <div>
-          <p className="eyebrow">06 / Common questions</p>
+          <p className="eyebrow">07 / Common questions</p>
           <h2 className="section-title">What you may want to know first.</h2>
         </div>
         <div className="border-t border-line">
@@ -377,7 +507,7 @@ function Contact() {
     <section className="border-t border-line bg-paper py-16 sm:py-20" id="contact">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.76fr_1fr] lg:items-start">
         <div>
-          <p className="eyebrow">07 / Free workflow review</p>
+          <p className="eyebrow">08 / Free workflow review</p>
           <h2 className="section-title">Find the simplest improvement worth making first.</h2>
           <p className="mt-5 max-w-xl text-base leading-7 text-muted">Share where leads slow down or customers get stuck. You will leave with a clearer view of what to fix now, what can wait, and what does not need automation at all.</p>
         </div>
