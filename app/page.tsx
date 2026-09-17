@@ -466,39 +466,63 @@ function CustomerJourney() {
 }
 
 function Pricing() {
+  const foundation = ["Responsive website", "Clear service and contact pages", "Lead forms and analytics", "Call and booking CTAs"];
+  const care = ["Content and website updates", "Performance monitoring", "Small monthly improvements", "Month-to-month flexibility"];
+  const automation = ["CRM and calendar connections", "Lead capture and callback workflows", "AI chat using approved business information", "Human handoff and escalation"];
+
   return (
     <section className="bg-paper py-16 sm:py-20" id="pricing">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-start">
+      <div className="section-shell">
         <div>
-          <p className="eyebrow">06 / Straightforward investment</p>
-          <h2 className="section-title">Start with a better website. Improve it as you grow.</h2>
-          <p className="mt-5 text-base leading-7 text-muted">A focused first version with ongoing support, without a long-term commitment.</p>
+          <p className="eyebrow">Pricing</p>
+          <h2 className="section-title">A clear place to start, with room to grow.</h2>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-muted">Choose the level of support your business needs today. Start with the website, keep it healthy, then add the workflow or AI support that earns its place.</p>
         </div>
-        <div className="border border-line bg-white">
-          <div className="grid border-b border-line sm:grid-cols-2">
-            <div className="p-6 sm:border-r sm:border-line">
-              <p className="text-sm font-semibold text-muted">Website build</p>
-              <p className="mt-2 text-4xl font-semibold text-ink">$1,000</p>
-              <p className="mt-2 text-sm text-muted">One-time project fee</p>
-            </div>
-            <div className="border-t border-line p-6 sm:border-t-0">
-              <p className="text-sm font-semibold text-muted">Ongoing care</p>
-              <p className="mt-2 text-4xl font-semibold text-ink">$100<span className="text-base font-medium text-muted">/mo</span></p>
-              <p className="mt-2 text-sm text-muted">First month free</p>
-            </div>
+        <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          <PricingCard label="Start here" title="Website foundation" price="$1,000" detail="One-time project fee" description="A clear, trustworthy digital front door that makes it easy for customers to understand you and take the next step." items={foundation} />
+          <PricingCard label="Keep it working" title="Ongoing care" price="$100/mo" detail="First month free" description="Practical support after launch so your site stays current, healthy, and useful as your business changes." items={care} />
+          <PricingCard label="Add when ready" title="Automation + AI" price="Custom scope" detail="Built around your workflow" description="Connect the systems behind your customer journey when there is a clear business reason to do so." items={automation} highlighted />
+        </div>
+        <div className="mt-5 flex flex-col gap-4 border border-line bg-white p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+          <div>
+            <p className="font-semibold text-ink">Your first step is a working conversation.</p>
+            <p className="mt-1 max-w-2xl text-sm leading-6 text-muted">We will identify the biggest point of friction, recommend the simplest package, and make clear what is included before any work begins. No long-term contract.</p>
           </div>
-          <div className="grid gap-3 p-6 sm:grid-cols-2">
-            {["Responsive website", "Forms and analytics", "Updates and monitoring", "No long-term contract", "Cancel anytime", "Hosting paid by client"].map((item) => (
-              <span key={item} className="flex items-center gap-3 text-sm text-ink"><Check aria-hidden className="h-4 w-4 text-blue" />{item}</span>
-            ))}
-          </div>
-          <div className="flex flex-col gap-4 border-t border-line bg-paper p-6 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-md text-xs leading-5 text-muted">Advanced integrations, messaging or phone usage, and larger automation projects are scoped separately.</p>
-            <Link href={siteConfig.bookingUrl} className="button-primary shrink-0">Talk through your needs</Link>
-          </div>
+          <Link href={siteConfig.bookingUrl} className="button-primary shrink-0">Book a Strategy Call</Link>
         </div>
       </div>
     </section>
+  );
+}
+
+function PricingCard({
+  label,
+  title,
+  price,
+  detail,
+  description,
+  items,
+  highlighted = false,
+}: {
+  label: string;
+  title: string;
+  price: string;
+  detail: string;
+  description: string;
+  items: string[];
+  highlighted?: boolean;
+}) {
+  return (
+    <article className={`flex flex-col border p-6 sm:p-7 ${highlighted ? "border-blue bg-blue-soft" : "border-line bg-white"}`}>
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-deep">{label}</p>
+      <h3 className="mt-4 text-2xl font-semibold text-ink">{title}</h3>
+      <p className="mt-6 font-display text-3xl font-bold text-ink">{price}</p>
+      <p className="mt-1 text-xs font-medium text-muted">{detail}</p>
+      <p className="mt-5 min-h-20 text-sm leading-6 text-muted">{description}</p>
+      <ul className="mt-5 space-y-3 border-t border-line pt-5">
+        {items.map((item) => <li key={item} className="flex items-start gap-3 text-sm text-ink"><Check aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-blue" />{item}</li>)}
+      </ul>
+    </article>
   );
 }
 
