@@ -12,7 +12,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -38,6 +38,18 @@ body {
   }
 
   .eyebrow {
-    @apply text-sm font-semibold uppercase tracking-[0.14em] text-blue-deep;
+    @apply text-xs font-semibold uppercase tracking-[0.12em] text-blue-deep;
+  }
+
+  .section-title {
+    @apply mt-4 text-3xl font-semibold leading-tight text-ink sm:text-4xl;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-deep;
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-line bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:border-blue/40 hover:text-blue-deep;
   }
 }

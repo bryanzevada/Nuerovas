@@ -1,179 +1,91 @@
 import {
+  ArrowRight,
   BellRing,
   Bot,
   CalendarCheck,
   Check,
-  ClipboardCheck,
-  FileText,
+  CircleCheck,
+  Clock3,
   Globe2,
-  Handshake,
-  HelpCircle,
-  MailCheck,
   MessageSquareText,
-  MousePointerClick,
   PhoneCall,
   RefreshCcw,
-  SearchCheck,
-  Send,
   ShieldCheck,
-  Sparkles,
-  UserRoundCheck,
+  Workflow,
+  Zap,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { Header } from "@/components/header";
 import { siteConfig } from "@/lib/site-config";
 
-const services = [
+const outcomes = [
   {
-    title: "Website Launch",
     icon: Globe2,
-    description: "A clear, modern website that helps customers understand your services and contact you.",
-    bullets: [
-      "Modern responsive website",
-      "Mobile-friendly design",
-      "Clear service pages",
-      "Contact and quote forms",
-      "Search-engine-friendly structure",
-      "Analytics setup",
-      "Call and booking buttons",
-    ],
+    title: "Make the next step obvious",
+    description:
+      "Give customers a fast, mobile-friendly way to understand your services, trust your business, and get in touch.",
+    items: ["Clear service pages", "Quote and contact forms", "Call and booking buttons"],
   },
   {
-    title: "Lead Capture and Follow-Up",
-    icon: MailCheck,
-    description: "Simple workflows that acknowledge leads quickly and keep the owner in the loop.",
-    bullets: [
-      "Website forms",
-      "Lead routing",
-      "Missed-call text-back",
-      "Callback requests",
-      "Email and SMS follow-up",
-      "Estimate request workflows",
-      "Owner notifications",
-      "CRM pipeline setup",
-    ],
+    icon: Zap,
+    title: "Respond while interest is high",
+    description:
+      "Acknowledge new inquiries quickly and route the right details to the right person without extra admin.",
+    items: ["Missed-call text-back", "Email and SMS follow-up", "Owner and team alerts"],
   },
   {
-    title: "AI Website Assistant",
     icon: Bot,
-    description: "A business-specific assistant for approved FAQs, lead details, and clear handoffs.",
-    bullets: [
-      "Answers approved business FAQs",
-      "Service and availability guidance",
-      "Lead qualification",
-      "Callback requests",
-      "Appointment handoff",
-      "Human escalation",
-      "Business-specific knowledge and tone",
-    ],
+    title: "Answer questions after hours",
+    description:
+      "Help visitors with approved answers, collect useful lead details, and hand uncertain situations to a person.",
+    items: ["Business-specific FAQs", "Lead qualification", "Human handoff"],
   },
-  {
-    title: "Ongoing Improvement",
-    icon: RefreshCcw,
-    description: "Monthly care for the website, workflows, knowledge base, and practical improvements.",
-    bullets: [
-      "Website updates",
-      "Workflow monitoring",
-      "AI knowledge-base updates",
-      "Monthly reporting",
-      "New automation improvements",
-      "Technical support",
-    ],
-  },
-];
-
-const problems = [
-  "Customers cannot quickly find the right information.",
-  "Calls get missed while the owner is busy serving customers.",
-  "Website inquiries sit too long before someone follows up.",
-  "Staff answer the same questions again and again.",
-  "Owners do not know which leads turned into real opportunities.",
 ];
 
 const steps = [
   {
-    title: "Understand the business",
-    description:
-      "We start with a normal conversation and a workflow audit: what customers ask, where leads come from, and where follow-up slows down.",
+    number: "01",
+    title: "Find the friction",
+    description: "Map how customers find you, ask questions, request service, and wait for a response.",
   },
   {
-    title: "Build the right website and workflow",
-    description:
-      "I create the website, forms, routing, notifications, and practical automations that fit how your business already works.",
+    number: "02",
+    title: "Fix the important path",
+    description: "Build the pages and follow-up workflow that remove the biggest points of delay first.",
   },
   {
-    title: "Improve the system over time",
-    description:
-      "After launch, we keep the content fresh, monitor the workflow, and add useful improvements as new needs show up.",
+    number: "03",
+    title: "Improve as you learn",
+    description: "Review what is working, keep information current, and add automation only where it helps.",
   },
-];
-
-const journey = [
-  { label: "Website visitor", icon: MousePointerClick },
-  { label: "Inquiry or phone call", icon: PhoneCall },
-  { label: "Instant acknowledgement", icon: BellRing },
-  { label: "Qualification or FAQ response", icon: ClipboardCheck },
-  { label: "Booking or callback request", icon: CalendarCheck },
-  { label: "Owner notification", icon: Send },
-];
-
-const assistantPrinciples = [
-  "Uses the business's approved information",
-  "Answers questions and collects lead details",
-  "Requests callbacks or guides visitors to booking",
-  "Hands off uncertain or sensitive situations to a human",
-  "Does not invent policies, prices, availability, or guarantees",
-];
-
-const pricingItems = [
-  "First month free",
-  "$1,000 one-time website build fee",
-  "$100 per month for maintenance and ongoing improvements",
-  "Hosting paid by client",
-  "No long-term contract",
-  "Cancel anytime",
 ];
 
 const faqs = [
   {
-    question: "Do I need to replace my current website?",
+    question: "Do I need a completely new website?",
     answer:
-      "Not always. If your current site is solid, we can improve pages, forms, tracking, and follow-up. If it is hard to update or confusing for customers, a rebuild may be the cleaner path.",
+      "Not necessarily. A workflow review will show whether your current site can be improved or whether rebuilding is the cleaner, more cost-effective option.",
   },
   {
-    question: "Do I need to understand AI?",
+    question: "Can this work with my current calendar or CRM?",
     answer:
-      "No. The goal is a useful business system, not a technical homework assignment. I explain what matters in plain language and keep the setup practical.",
+      "Usually. Existing tools are reviewed first, then connected or simplified where it makes sense. You do not need to replace software that already works well.",
   },
   {
-    question: "Can this work with my existing CRM or calendar?",
+    question: "What happens when the AI assistant is unsure?",
     answer:
-      "Often, yes. We can look at your current tools during the workflow audit and decide whether to connect them, simplify them, or keep the first version focused.",
+      "It does not guess. It collects the right contact details and hands the conversation to a person for anything uncertain, sensitive, or outside its approved information.",
   },
   {
-    question: "Can you help with phone calls and missed calls?",
+    question: "Can I start with just the website?",
     answer:
-      "Yes. Missed-call text-back, callback requests, owner notifications, and intake workflows can help customers get acknowledged faster.",
+      "Yes. A clearer website is often the right first step. Follow-up and assistant features can be added when there is a useful reason to add them.",
   },
   {
-    question: "What happens if the assistant does not know the answer?",
-    answer:
-      "It should say it is not sure, collect the right details, and hand the conversation to a human. It is designed to support your team, not make risky guesses.",
-  },
-  {
-    question: "Do I need a long-term contract?",
-    answer: "No. The launch offer has no long-term contract and can be canceled anytime.",
-  },
-  {
-    question: "What does the monthly maintenance include?",
-    answer:
-      "It includes website updates, basic monitoring, knowledge-base updates, reporting, technical support, and practical automation improvements.",
-  },
-  {
-    question: "Can I start with only a website?",
-    answer:
-      "Yes. A better website is a great first step. The automation pieces can be added when the business is ready.",
+    question: "Is there a long-term contract?",
+    answer: "No. Ongoing maintenance is month to month, and you can cancel anytime.",
   },
 ];
 
@@ -183,14 +95,13 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <ProblemSection />
-        <ServicesSection />
-        <HowItWorksSection />
-        <LeadJourneySection />
-        <AiAssistantSection />
-        <PricingSection />
-        <FaqSection />
-        <FinalCtaSection />
+        <CustomerProblems />
+        <Outcomes />
+        <HowItWorks />
+        <CustomerJourney />
+        <Pricing />
+        <Faq />
+        <Contact />
       </main>
       <Footer />
     </>
@@ -199,192 +110,109 @@ export default function Home() {
 
 function Hero() {
   return (
-    <section className="border-b border-line bg-paper">
-      <div className="section-shell grid gap-12 py-16 lg:grid-cols-[1fr_0.88fr] lg:items-center lg:py-24">
+    <section className="overflow-hidden border-b border-line bg-paper">
+      <div className="section-shell grid gap-14 py-16 lg:grid-cols-[1.04fr_0.86fr] lg:items-center lg:py-24">
         <div className="max-w-3xl">
-          <p className="eyebrow">Built personally by Bryan</p>
-          <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
-            Websites and AI systems that help local businesses respond faster.
+          <p className="eyebrow">For local service businesses</p>
+          <h1 className="mt-5 text-4xl font-semibold leading-[1.04] text-ink sm:text-5xl lg:text-6xl">
+            Turn more inquiries into booked work.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-            I help small businesses improve their website, capture more inquiries, automate
-            follow-up, and give customers helpful answers around the clock.
+            Give customers clear answers, respond to new leads faster, and keep every opportunity
+            moving without adding more repetitive work to your day.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href={siteConfig.bookingUrl}
-              className="inline-flex items-center justify-center gap-2 rounded-md bg-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-deep"
-            >
+            <Link href={siteConfig.bookingUrl} className="button-primary">
               <CalendarCheck aria-hidden className="h-4 w-4" />
               {siteConfig.cta.primary}
             </Link>
-            <Link
-              href="#how-it-works"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-line bg-white px-5 py-3 text-sm font-semibold text-ink transition hover:border-blue/40 hover:text-blue-deep"
-            >
-              <SearchCheck aria-hidden className="h-4 w-4" />
-              {siteConfig.cta.secondary}
+            <Link href="#how-it-works" className="button-secondary">
+              See the process
+              <ArrowRight aria-hidden className="h-4 w-4" />
             </Link>
           </div>
-          <div className="mt-9 grid max-w-2xl gap-3 text-sm text-muted sm:grid-cols-3">
-            {["Local service focus", "Plain-language process", "Website plus workflow"].map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <Check aria-hidden className="h-4 w-4 text-blue" />
-                <span>{item}</span>
-              </div>
+          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
+            {["Clear scope", "No long-term contract", "Human support"].map((item) => (
+              <span key={item} className="flex items-center gap-2">
+                <CircleCheck aria-hidden className="h-4 w-4 text-blue" />
+                {item}
+              </span>
             ))}
           </div>
         </div>
-        <WorkflowPreview />
+        <ConversionPreview />
       </div>
     </section>
   );
 }
 
-function WorkflowPreview() {
+function ConversionPreview() {
+  const events = [
+    { icon: MessageSquareText, title: "New inquiry", detail: "Estimate request received", time: "9:41" },
+    { icon: Zap, title: "Reply sent", detail: "Customer knows what happens next", time: "9:41" },
+    { icon: BellRing, title: "Team notified", detail: "Lead details delivered", time: "9:42" },
+    { icon: CalendarCheck, title: "Visit requested", detail: "Thursday afternoon", time: "9:44" },
+  ];
+
   return (
-    <div className="rounded-lg border border-line bg-panel p-3 shadow-soft">
-      <div className="rounded-md border border-line bg-paper p-4">
-        <div className="flex items-center justify-between gap-4 border-b border-line pb-4">
+    <div className="relative">
+      <div className="absolute -left-6 top-10 hidden h-24 w-1 bg-warm lg:block" />
+      <div className="border border-line bg-white shadow-soft">
+        <div className="flex items-center justify-between border-b border-line px-5 py-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-deep">
-              Local business website
-            </p>
-            <h2 className="mt-1 text-lg font-semibold text-ink">Lead journey preview</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-deep">Lead activity</p>
+            <h2 className="mt-1 text-base font-semibold text-ink">One inquiry, handled clearly</h2>
           </div>
-          <div className="hidden items-center gap-2 text-xs text-muted sm:flex">
-            <span className="h-2 w-2 rounded-full bg-green-600" />
-            Live workflow
-          </div>
+          <span className="flex items-center gap-2 text-xs font-medium text-muted">
+            <span className="h-2 w-2 rounded-full bg-emerald-500" /> Live
+          </span>
         </div>
-
-        <div className="mt-5 grid gap-4 md:grid-cols-[1fr_0.82fr]">
-          <div className="rounded-md border border-line bg-white p-4">
-            <div className="h-24 rounded-md bg-blue-soft p-4">
-              <div className="h-3 w-28 rounded-sm bg-blue/60" />
-              <div className="mt-4 h-2 w-full rounded-sm bg-white" />
-              <div className="mt-2 h-2 w-3/4 rounded-sm bg-white" />
-            </div>
-            <div className="mt-4 grid gap-3">
-              {["Service area", "Quote request", "Call now"].map((label) => (
-                <div key={label} className="flex items-center justify-between rounded-md border border-line px-3 py-2">
-                  <span className="text-sm font-medium text-ink">{label}</span>
-                  <span className="h-2 w-10 rounded-sm bg-warm-soft" />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            {[
-              ["New inquiry", "Kitchen remodel estimate"],
-              ["Text sent", "Thanks, we received it"],
-              ["Owner alert", "Lead details delivered"],
-            ].map(([title, detail]) => (
-              <div key={title} className="rounded-md border border-line bg-white p-3">
-                <p className="text-sm font-semibold text-ink">{title}</p>
-                <p className="mt-1 text-xs leading-5 text-muted">{detail}</p>
+        <div className="divide-y divide-line">
+          {events.map((event, index) => {
+            const Icon = event.icon;
+            return (
+              <div key={event.title} className="grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 px-5 py-4">
+                <span className={`grid h-10 w-10 place-items-center ${index === 3 ? "bg-warm-soft text-warm" : "bg-blue-soft text-blue-deep"}`}>
+                  <Icon aria-hidden className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block text-sm font-semibold text-ink">{event.title}</span>
+                  <span className="mt-0.5 block text-xs text-muted">{event.detail}</span>
+                </span>
+                <span className="text-xs tabular-nums text-muted">{event.time}</span>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
-
-        <div className="mt-4 rounded-md border border-blue/20 bg-blue-soft p-4">
-          <p className="text-sm font-semibold text-blue-deep">Customer gets a fast response.</p>
-          <p className="mt-1 text-sm leading-6 text-muted">
-            The owner gets the right details without needing to check five places.
-          </p>
+        <div className="border-t border-line bg-ink px-5 py-4 text-white">
+          <p className="text-sm font-semibold">The customer gets momentum.</p>
+          <p className="mt-1 text-xs leading-5 text-white/65">Your team gets the context needed to follow through.</p>
         </div>
       </div>
     </div>
   );
 }
 
-function ProblemSection() {
-  return (
-    <section className="bg-white py-16" id="problems">
-      <div className="section-shell">
-        <div className="max-w-3xl">
-          <p className="eyebrow">Where opportunities leak</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Most small-business follow-up problems are ordinary, fixable things.
-          </h2>
-        </div>
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          {problems.map((problem) => (
-            <div key={problem} className="rounded-md border border-line bg-paper p-5">
-              <HelpCircle aria-hidden className="h-5 w-5 text-warm" />
-              <p className="mt-4 text-sm leading-6 text-muted">{problem}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+function CustomerProblems() {
+  const problems = [
+    [Clock3, "Slow replies", "A customer who waits too long often calls the next business."],
+    [PhoneCall, "Missed calls", "Busy workdays should not mean losing every caller you cannot answer."],
+    [RefreshCcw, "Repeated questions", "Your team should not have to type the same answers all day."],
+  ] as const;
 
-function ServicesSection() {
   return (
-    <section className="bg-paper py-16" id="services">
+    <section className="bg-white py-16 sm:py-20">
       <div className="section-shell">
-        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-          <div className="max-w-3xl">
-            <p className="eyebrow">Services</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Practical packages for websites, leads, AI assistants, and ongoing care.
-            </h2>
-          </div>
-          <p className="max-w-md text-base leading-7 text-muted">
-            Each package is designed to be understandable for a busy owner, with the technical
-            pieces handled behind the scenes.
-          </p>
+        <div className="max-w-2xl">
+          <p className="eyebrow">Less friction for your customers</p>
+          <h2 className="section-title">Make it easier to choose you, reach you, and hear back.</h2>
         </div>
-
-        <div className="mt-10 grid gap-5 lg:grid-cols-4">
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <article key={service.title} className="rounded-md border border-line bg-white p-5 shadow-sm">
-                <div className="flex h-11 w-11 items-center justify-center rounded-md bg-blue-soft text-blue-deep">
-                  <Icon aria-hidden className="h-5 w-5" />
-                </div>
-                <h3 className="mt-5 text-xl font-semibold text-ink">{service.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{service.description}</p>
-                <ul className="mt-5 space-y-2">
-                  {service.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-2 text-sm leading-5 text-muted">
-                      <Check aria-hidden className="mt-0.5 h-4 w-4 shrink-0 text-blue" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HowItWorksSection() {
-  return (
-    <section className="bg-white py-16" id="how-it-works">
-      <div className="section-shell">
-        <div className="max-w-3xl">
-          <p className="eyebrow">How it works</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            It starts with a conversation, not a complicated technology consultation.
-          </h2>
-        </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {steps.map((step, index) => (
-            <article key={step.title} className="rounded-md border border-line bg-paper p-6">
-              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-ink text-sm font-semibold text-white">
-                {index + 1}
-              </div>
-              <h3 className="mt-5 text-xl font-semibold text-ink">{step.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted">{step.description}</p>
+        <div className="mt-10 grid border-y border-line md:grid-cols-3">
+          {problems.map(([Icon, title, description], index) => (
+            <article key={title} className={`py-7 md:px-7 ${index > 0 ? "border-t border-line md:border-l md:border-t-0" : ""}`}>
+              <Icon aria-hidden className="h-5 w-5 text-warm" />
+              <h3 className="mt-4 text-lg font-semibold text-ink">{title}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">{description}</p>
             </article>
           ))}
         </div>
@@ -393,146 +221,102 @@ function HowItWorksSection() {
   );
 }
 
-function LeadJourneySection() {
+function Outcomes() {
   return (
-    <section className="border-y border-line bg-paper py-16">
+    <section className="bg-paper py-16 sm:py-20" id="services">
       <div className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.7fr_1fr] lg:items-center">
-          <div>
-            <p className="eyebrow">Lead journey</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              A simple path from first visit to owner notification.
-            </h2>
-            <p className="mt-5 text-base leading-7 text-muted">
-              The goal is not to make the business feel more complicated. It is to make sure the
-              customer gets acknowledged and the owner gets the details needed to follow up.
-            </p>
-          </div>
-          <div className="rounded-lg border border-line bg-white p-4 shadow-soft">
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {journey.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.label} className="rounded-md border border-line bg-paper p-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <Icon aria-hidden className="h-5 w-5 text-blue-deep" />
-                      <span className="text-xs font-semibold text-muted">Step {index + 1}</span>
-                    </div>
-                    <p className="mt-4 text-sm font-semibold leading-5 text-ink">{item.label}</p>
-                  </div>
-                );
-              })}
+        <div className="max-w-2xl">
+          <p className="eyebrow">What gets better</p>
+          <h2 className="section-title">A simpler customer experience from first click to follow-up.</h2>
+        </div>
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {outcomes.map((outcome) => {
+            const Icon = outcome.icon;
+            return (
+              <article key={outcome.title} className="border border-line bg-white p-6">
+                <Icon aria-hidden className="h-6 w-6 text-blue-deep" />
+                <h3 className="mt-6 text-xl font-semibold text-ink">{outcome.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted">{outcome.description}</p>
+                <ul className="mt-6 space-y-3 border-t border-line pt-5">
+                  {outcome.items.map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-sm text-ink">
+                      <Check aria-hidden className="h-4 w-4 shrink-0 text-blue" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+        <div className="mt-5 flex flex-col justify-between gap-4 border border-line bg-blue-soft px-6 py-5 sm:flex-row sm:items-center">
+          <div className="flex items-start gap-4">
+            <RefreshCcw aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-blue-deep" />
+            <div>
+              <p className="font-semibold text-ink">Keep improving after launch</p>
+              <p className="mt-1 text-sm leading-6 text-muted">Updates, monitoring, reporting, and practical workflow improvements are handled month to month.</p>
             </div>
           </div>
+          <Link href="#pricing" className="shrink-0 text-sm font-semibold text-blue-deep hover:text-ink">See pricing</Link>
         </div>
       </div>
     </section>
   );
 }
 
-function AiAssistantSection() {
+function HowItWorks() {
   return (
-    <section className="bg-white py-16" id="ai-assistants">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-center">
+    <section className="bg-white py-16 sm:py-20" id="how-it-works">
+      <div className="section-shell grid gap-10 lg:grid-cols-[0.62fr_1fr] lg:gap-16">
         <div>
-          <p className="eyebrow">AI assistants</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Helpful answers from approved business information.
-          </h2>
-          <p className="mt-5 text-base leading-7 text-muted">
-            The assistant is designed to support the business, not replace human judgment. It can
-            answer common questions, collect lead details, and route people to the next best step.
-          </p>
-          <ul className="mt-6 space-y-3">
-            {assistantPrinciples.map((principle) => (
-              <li key={principle} className="flex gap-3 text-sm leading-6 text-muted">
-                <ShieldCheck aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-blue" />
-                <span>{principle}</span>
-              </li>
+          <p className="eyebrow">How it works</p>
+          <h2 className="section-title">Start with the bottleneck, not the technology.</h2>
+          <p className="mt-5 text-base leading-7 text-muted">The first conversation is about your customers and daily workflow. The tools come after the problem is clear.</p>
+        </div>
+        <div className="border-t border-line">
+          {steps.map((step) => (
+            <article key={step.number} className="grid gap-3 border-b border-line py-6 sm:grid-cols-[4rem_0.8fr_1fr] sm:items-start">
+              <span className="text-sm font-semibold text-warm">{step.number}</span>
+              <h3 className="text-lg font-semibold text-ink">{step.title}</h3>
+              <p className="text-sm leading-6 text-muted">{step.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CustomerJourney() {
+  return (
+    <section className="border-y border-line bg-ink py-16 text-white sm:py-20" id="ai-assistants">
+      <div className="section-shell grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-center">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-warm-soft">Support without guesswork</p>
+          <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">Helpful answers, with a person always in reach.</h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-white/68">An AI website assistant can answer approved questions, collect lead details, and guide visitors to booking. It never invents prices, policies, availability, or guarantees.</p>
+          <div className="mt-7 grid gap-3 sm:grid-cols-2">
+            {["Uses approved information", "Collects useful lead details", "Supports booking and callbacks", "Escalates uncertainty"].map((item) => (
+              <span key={item} className="flex items-center gap-3 text-sm text-white/82">
+                <ShieldCheck aria-hidden className="h-4 w-4 shrink-0 text-warm" /> {item}
+              </span>
             ))}
-          </ul>
-        </div>
-        <ChatPreview />
-      </div>
-    </section>
-  );
-}
-
-function ChatPreview() {
-  return (
-    <div className="rounded-lg border border-line bg-panel p-4 shadow-soft">
-      <div className="flex items-center justify-between border-b border-line pb-4">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blue-soft text-blue-deep">
-            <MessageSquareText aria-hidden className="h-5 w-5" />
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-ink">Assistant preview</p>
-            <p className="text-xs text-muted">Demonstration content</p>
           </div>
         </div>
-        <span className="rounded-md border border-line px-2.5 py-1 text-xs font-medium text-muted">
-          Demo
-        </span>
-      </div>
-      <div className="mt-5 space-y-4">
-        <div className="max-w-[84%] rounded-md bg-paper p-3 text-sm leading-6 text-muted">
-          Do you handle emergency plumbing calls after 5 PM?
-        </div>
-        <div className="ml-auto max-w-[88%] rounded-md bg-blue-soft p-3 text-sm leading-6 text-blue-deep">
-          We can help with after-hours requests. I can collect your address, issue, and preferred
-          callback number so the team can confirm availability.
-        </div>
-        <div className="max-w-[84%] rounded-md bg-paper p-3 text-sm leading-6 text-muted">
-          Can someone call me back?
-        </div>
-        <div className="ml-auto max-w-[88%] rounded-md bg-blue-soft p-3 text-sm leading-6 text-blue-deep">
-          Yes. What is the best phone number and a short description of the issue?
-        </div>
-      </div>
-      <div className="mt-5 rounded-md border border-warm/30 bg-warm-soft p-3 text-sm leading-6 text-ink">
-        If a question is uncertain or sensitive, the assistant asks for contact details and hands
-        it to a person.
-      </div>
-    </div>
-  );
-}
-
-function PricingSection() {
-  return (
-    <section className="bg-paper py-16" id="pricing">
-      <div className="section-shell">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-start">
-          <div>
-            <p className="eyebrow">Launch offer</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Start with a better website. Improve it as your business grows.
-            </h2>
-            <p className="mt-5 text-base leading-7 text-muted">
-              Clear pricing for the first version, with room to scope larger automations or
-              advanced integrations separately when they are worth doing.
-            </p>
-          </div>
-          <div className="rounded-lg border border-line bg-white p-6 shadow-soft">
-            <div className="grid gap-4 sm:grid-cols-2">
-              {pricingItems.map((item) => (
-                <div key={item} className="flex gap-3 rounded-md border border-line bg-paper p-4">
-                  <Check aria-hidden className="mt-0.5 h-5 w-5 shrink-0 text-blue" />
-                  <span className="text-sm font-medium leading-6 text-ink">{item}</span>
-                </div>
-              ))}
+        <div className="bg-white text-ink">
+          <div className="flex items-center justify-between border-b border-line px-5 py-4">
+            <div className="flex items-center gap-3">
+              <span className="grid h-9 w-9 place-items-center bg-blue-soft text-blue-deep"><MessageSquareText aria-hidden className="h-5 w-5" /></span>
+              <div><p className="text-sm font-semibold">Website assistant</p><p className="text-xs text-muted">Demonstration</p></div>
             </div>
-            <p className="mt-5 rounded-md border border-line bg-white p-4 text-sm leading-6 text-muted">
-              Custom automation, advanced integrations, paid messaging, phone usage, or larger
-              projects may be scoped separately.
-            </p>
-            <Link
-              href={siteConfig.bookingUrl}
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-deep sm:w-auto"
-            >
-              <Handshake aria-hidden className="h-4 w-4" />
-              Talk Through My Business
-            </Link>
+            <span className="text-xs font-semibold text-emerald-700">Available</span>
+          </div>
+          <div className="space-y-4 p-5">
+            <p className="max-w-[82%] bg-paper p-3 text-sm leading-6 text-muted">Can someone call me about an estimate?</p>
+            <p className="ml-auto max-w-[88%] bg-blue-soft p-3 text-sm leading-6 text-blue-deep">Absolutely. What service do you need, and what is the best number for the team to reach you?</p>
+            <div className="flex items-center gap-3 border-t border-line pt-4 text-xs text-muted">
+              <Workflow aria-hidden className="h-4 w-4 text-warm" /> Callback request sent to the team
+            </div>
           </div>
         </div>
       </div>
@@ -540,26 +324,59 @@ function PricingSection() {
   );
 }
 
-function FaqSection() {
+function Pricing() {
   return (
-    <section className="bg-white py-16" id="faq">
-      <div className="section-shell">
-        <div className="max-w-3xl">
-          <p className="eyebrow">FAQ</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Straight answers before we talk.
-          </h2>
+    <section className="bg-paper py-16 sm:py-20" id="pricing">
+      <div className="section-shell grid gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-start">
+        <div>
+          <p className="eyebrow">Straightforward investment</p>
+          <h2 className="section-title">Start with a better website. Improve it as you grow.</h2>
+          <p className="mt-5 text-base leading-7 text-muted">A focused first version with ongoing support, without a long-term commitment.</p>
         </div>
-        <div className="mt-10 grid gap-4 lg:grid-cols-2">
+        <div className="border border-line bg-white">
+          <div className="grid border-b border-line sm:grid-cols-2">
+            <div className="p-6 sm:border-r sm:border-line">
+              <p className="text-sm font-semibold text-muted">Website build</p>
+              <p className="mt-2 text-4xl font-semibold text-ink">$1,000</p>
+              <p className="mt-2 text-sm text-muted">One-time project fee</p>
+            </div>
+            <div className="border-t border-line p-6 sm:border-t-0">
+              <p className="text-sm font-semibold text-muted">Ongoing care</p>
+              <p className="mt-2 text-4xl font-semibold text-ink">$100<span className="text-base font-medium text-muted">/mo</span></p>
+              <p className="mt-2 text-sm text-muted">First month free</p>
+            </div>
+          </div>
+          <div className="grid gap-3 p-6 sm:grid-cols-2">
+            {["Responsive website", "Forms and analytics", "Updates and monitoring", "No long-term contract", "Cancel anytime", "Hosting paid by client"].map((item) => (
+              <span key={item} className="flex items-center gap-3 text-sm text-ink"><Check aria-hidden className="h-4 w-4 text-blue" />{item}</span>
+            ))}
+          </div>
+          <div className="flex flex-col gap-4 border-t border-line bg-paper p-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-md text-xs leading-5 text-muted">Advanced integrations, messaging or phone usage, and larger automation projects are scoped separately.</p>
+            <Link href={siteConfig.bookingUrl} className="button-primary shrink-0">Talk through your needs</Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Faq() {
+  return (
+    <section className="bg-white py-16 sm:py-20" id="faq">
+      <div className="section-shell grid gap-10 lg:grid-cols-[0.55fr_1fr] lg:gap-16">
+        <div>
+          <p className="eyebrow">Common questions</p>
+          <h2 className="section-title">What you may want to know first.</h2>
+        </div>
+        <div className="border-t border-line">
           {faqs.map((faq) => (
-            <details key={faq.question} className="group rounded-md border border-line bg-paper p-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-ink">
-                <span>{faq.question}</span>
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-line bg-white text-blue-deep group-open:rotate-45">
-                  +
-                </span>
+            <details key={faq.question} className="group border-b border-line py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-base font-semibold text-ink">
+                {faq.question}
+                <span className="text-xl font-normal text-blue-deep transition group-open:rotate-45">+</span>
               </summary>
-              <p className="mt-4 text-sm leading-6 text-muted">{faq.answer}</p>
+              <p className="max-w-2xl pt-4 text-sm leading-6 text-muted">{faq.answer}</p>
             </details>
           ))}
         </div>
@@ -568,44 +385,16 @@ function FaqSection() {
   );
 }
 
-function FinalCtaSection() {
+function Contact() {
   return (
-    <section className="border-y border-line bg-paper py-16">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.82fr_1fr] lg:items-start">
+    <section className="border-t border-line bg-paper py-16 sm:py-20" id="contact">
+      <div className="section-shell grid gap-10 lg:grid-cols-[0.76fr_1fr] lg:items-start">
         <div>
-          <p className="eyebrow">{siteConfig.cta.supporting}</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            Let&apos;s look at what your current website and follow-up process are costing you.
-          </h2>
-          <p className="mt-5 text-base leading-7 text-muted">
-            Book a free workflow audit and I&apos;ll help you identify the simplest improvements worth
-            making first.
-          </p>
-          <div className="mt-8 rounded-md border border-line bg-white p-5">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-warm-soft text-warm">
-                <UserRoundCheck aria-hidden className="h-6 w-6" />
-              </div>
-              <div>
-                <p className="font-semibold text-ink">Future professional photo placeholder</p>
-                <p className="mt-2 text-sm leading-6 text-muted">
-                  Add Bryan&apos;s real photo here before launch. No invented portraits or fake client
-                  imagery are used in this first version.
-                </p>
-              </div>
-            </div>
-          </div>
+          <p className="eyebrow">Free workflow review</p>
+          <h2 className="section-title">Find the simplest improvement worth making first.</h2>
+          <p className="mt-5 max-w-xl text-base leading-7 text-muted">Share where leads slow down or customers get stuck. You will leave with a clearer view of what to fix now, what can wait, and what does not need automation at all.</p>
         </div>
-        <div className="rounded-lg border border-line bg-white p-6 shadow-soft">
-          <div className="mb-6 flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-md bg-blue-soft text-blue-deep">
-              <FileText aria-hidden className="h-5 w-5" />
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-ink">Free workflow audit</h3>
-              <p className="text-sm text-muted">Validated demo form, ready for integration.</p>
-            </div>
-          </div>
+        <div className="border border-line bg-white p-6 shadow-soft sm:p-8">
           <ContactForm />
         </div>
       </div>
@@ -615,65 +404,23 @@ function FinalCtaSection() {
 
 function Footer() {
   return (
-    <footer className="bg-ink py-12 text-white">
-      <div className="section-shell">
-        <div className="grid gap-8 md:grid-cols-[1fr_0.7fr_0.7fr]">
-          <div>
-            <p className="text-lg font-semibold">{siteConfig.name}</p>
-            <p className="mt-3 max-w-md text-sm leading-6 text-white/72">
-              Local websites and AI automation systems for better lead capture, faster follow-up,
-              and less repetitive admin work.
-            </p>
+    <footer className="bg-ink py-10 text-white">
+      <div className="section-shell flex flex-col gap-8">
+        <div className="flex flex-col justify-between gap-7 sm:flex-row sm:items-start">
+          <div className="flex items-center gap-3">
+            <Image src="/brand/nuerovas-mark.svg" width={34} height={34} alt="" />
+            <div><p className="font-semibold">Nuerovas</p><p className="mt-0.5 text-xs text-white/55">Websites and practical automation</p></div>
           </div>
-          <div>
-            <p className="text-sm font-semibold">Services</p>
-            <ul className="mt-3 space-y-2 text-sm text-white/72">
-              {services.map((service) => (
-                <li key={service.title}>
-                  <Link href="#services" className="hover:text-white">
-                    {service.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-sm font-semibold">Contact</p>
-            <ul className="mt-3 space-y-2 text-sm text-white/72">
-              <li>
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
-                  {siteConfig.email}
-                </a>
-              </li>
-              <li>
-                <a href={`tel:${siteConfig.phone}`} className="hover:text-white">
-                  {siteConfig.phone}
-                </a>
-              </li>
-              <li>
-                <Link href={siteConfig.bookingUrl} className="hover:text-white">
-                  Booking link placeholder
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="hover:text-white">
-                  Privacy placeholder
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="hover:text-white">
-                  Terms placeholder
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/68">
+            <Link href="#services" className="hover:text-white">Services</Link>
+            <Link href="#how-it-works" className="hover:text-white">Process</Link>
+            <Link href="#pricing" className="hover:text-white">Pricing</Link>
+            <a href={`mailto:${siteConfig.email}`} className="hover:text-white">Contact</a>
+          </nav>
         </div>
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/14 pt-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <Sparkles aria-hidden className="h-4 w-4 text-warm" />
-            <span>Personal, practical, low-pressure AI help.</span>
-          </div>
+        <div className="flex flex-col justify-between gap-3 border-t border-white/12 pt-6 text-xs text-white/50 sm:flex-row">
+          <p>Copyright {new Date().getFullYear()} Nuerovas. All rights reserved.</p>
+          <div className="flex gap-5"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
         </div>
       </div>
     </footer>

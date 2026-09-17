@@ -90,11 +90,11 @@ export function ContactForm() {
         className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-blue px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-deep sm:w-auto"
       >
         <Send aria-hidden className="h-4 w-4" />
-        Talk Through My Business
+        Request My Free Review
       </button>
       {submitted ? (
         <p className="rounded-md border border-blue/20 bg-blue-soft px-4 py-3 text-sm text-blue-deep">
-          Thanks. This demo form is validated and ready to connect to your preferred inbox or CRM.
+          Thanks. This preview form is ready to connect to the inbox or CRM you choose.
         </p>
       ) : null}
     </form>

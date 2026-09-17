@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: "Bryan",
-  brandName: "Bryan | AI Websites & Automation",
+  name: "Nuerovas",
+  brandName: "Nuerovas",
   siteUrl: "https://nuerovas.com/",
   description:
-    "Local website and AI automation help for small businesses that want better lead capture, faster follow-up, and less repetitive admin work.",
+    "Turn more inquiries into booked work with a clearer website, faster follow-up, and practical automation built for local service businesses.",
   email: "hello@example.com",
   phone: "(555) 123-4567",
   bookingUrl: "https://example.com/book-audit",
@@ -12,15 +12,12 @@ export const siteConfig = {
   },
   nav: [
     { label: "Services", href: "#services" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "AI Assistants", href: "#ai-assistants" },
+    { label: "How it works", href: "#how-it-works" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
   ],
   cta: {
-    primary: "Book a Free Workflow Audit",
-    secondary: "See How It Works",
-    supporting: "Let's bring AI to your business",
+    primary: "Get a Free Workflow Review",
   },
 };
 

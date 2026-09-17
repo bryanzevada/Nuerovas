@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { siteConfig } from "@/lib/site-config";
@@ -14,16 +15,11 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/92 backdrop-blur">
       <nav
         aria-label="Primary navigation"
-        className="section-shell flex min-h-20 items-center justify-between gap-4"
+        className="section-shell flex min-h-16 items-center justify-between gap-4"
       >
-        <Link href="#" className="flex items-center gap-3" onClick={closeMenu}>
-          <span className="grid h-10 w-10 place-items-center rounded-md bg-ink text-sm font-bold text-white">
-            B
-          </span>
-          <span className="leading-tight">
-            <span className="block text-base font-semibold text-ink">{siteConfig.name}</span>
-            <span className="block text-xs text-muted">AI websites & automation</span>
-          </span>
+        <Link href="#" className="flex items-center gap-2.5" onClick={closeMenu} aria-label="Nuerovas home">
+          <Image src="/brand/nuerovas-mark.svg" width={34} height={34} alt="" priority />
+          <span className="text-base font-semibold text-ink">{siteConfig.name}</span>
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
@@ -38,7 +34,7 @@ export function Header() {
           ))}
           <Link
             href={siteConfig.bookingUrl}
-            className="rounded-md bg-blue px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-deep"
+            className="inline-flex items-center bg-blue px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-deep"
           >
             {siteConfig.cta.primary}
           </Link>
@@ -46,7 +42,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-line bg-panel lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center border border-line bg-panel lg:hidden"
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((value) => !value)}
@@ -62,7 +58,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-md px-2 py-3 text-base font-medium text-ink"
+                className="px-2 py-3 text-base font-medium text-ink"
                 onClick={closeMenu}
               >
                 {item.label}
@@ -70,7 +66,7 @@ export function Header() {
             ))}
             <Link
               href={siteConfig.bookingUrl}
-              className="mt-2 rounded-md bg-blue px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-2 bg-blue px-4 py-3 text-center text-sm font-semibold text-white"
               onClick={closeMenu}
             >
               {siteConfig.cta.primary}

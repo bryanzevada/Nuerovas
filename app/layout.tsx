@@ -11,10 +11,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
-  title: "Bryan | AI Websites & Automation for Local Businesses",
+  title: "Turn More Inquiries Into Booked Work | Nuerovas",
   description: siteConfig.description,
   openGraph: {
-    title: "Bryan | AI Websites & Automation for Local Businesses",
+    title: "Turn More Inquiries Into Booked Work | Nuerovas",
     description: siteConfig.description,
     url: siteConfig.siteUrl,
     siteName: siteConfig.brandName,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bryan | AI Websites & Automation for Local Businesses",
+    title: "Turn More Inquiries Into Booked Work | Nuerovas",
     description: siteConfig.description,
   },
 };
