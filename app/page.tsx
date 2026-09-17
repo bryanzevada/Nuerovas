@@ -101,6 +101,7 @@ export default function Home() {
         <Pricing />
         <Faq />
         <Contact />
+        <BrandShowcase />
       </main>
       <Footer />
     </>
@@ -388,13 +389,53 @@ function Contact() {
   );
 }
 
+function BrandShowcase() {
+  return (
+    <section className="border-t border-white/10 bg-ink py-14 text-white sm:py-20" aria-label="Nuerovas brand showcase" id="brand-showcase">
+      <div className="section-shell">
+        <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-soft/70">Built around the customer journey</p>
+            <h2 className="mt-4 max-w-3xl text-3xl font-medium leading-tight sm:text-4xl">
+              A stronger digital front door, backed by practical systems.
+            </h2>
+          </div>
+          <p className="max-w-sm text-sm leading-6 text-white/58">
+            Clearer websites, faster follow-up, and helpful automation working as one experience.
+          </p>
+        </div>
+
+        <figure className="relative mt-9 overflow-hidden border border-white/12 bg-white/5 p-2 sm:p-4">
+          <Image
+            src="/brand/nuerovas-banner.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="scale-110 object-cover opacity-20 blur-2xl"
+            aria-hidden
+          />
+          <div className="relative aspect-[4/3] overflow-hidden bg-white shadow-soft sm:aspect-[2/1]">
+            <Image
+              src="/brand/nuerovas-banner.webp"
+              alt="Nuerovas - AI Websites, Automation, Intelligent Agents"
+              fill
+              sizes="(min-width: 1280px) 1184px, calc(100vw - 56px)"
+              className="object-cover object-center opacity-95"
+            />
+          </div>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-ink py-10 text-white">
       <div className="section-shell flex flex-col gap-8">
         <div className="flex flex-col justify-between gap-7 sm:flex-row sm:items-start">
           <div className="flex items-center gap-3">
-            <Image src="/brand/nuerovas-mark.svg" width={34} height={34} alt="" />
+            <Image src="/brand/nuerovas-orbit-mark.png" width={34} height={34} alt="" className="bg-white" />
             <div><p className="font-semibold">Nuerovas</p><p className="mt-0.5 text-xs text-white/55">Websites and practical automation</p></div>
           </div>
           <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/68">
@@ -409,7 +450,7 @@ function Footer() {
           <div className="flex gap-5"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
         </div>
         <div className="flex items-end gap-4 overflow-hidden border-t border-white/12 pt-8">
-          <Image src="/brand/nuerovas-mark.svg" width={76} height={76} alt="" className="mb-1 hidden sm:block" />
+          <Image src="/brand/nuerovas-orbit-mark.png" width={76} height={76} alt="" className="mb-1 hidden bg-white sm:block" />
           <p className="text-5xl font-medium leading-none text-white sm:text-7xl lg:text-9xl">Nuerovas</p>
         </div>
       </div>
