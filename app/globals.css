@@ -91,6 +91,19 @@ h1, h2, h3 {
   transform: translate(-42%, -50%) rotate(28deg);
 }
 
+@keyframes crm-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 8px)); }
+}
+
+.crm-marquee {
+  animation: crm-marquee 34s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crm-marquee { animation-play-state: paused; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

@@ -1,70 +1,42 @@
-"use client";
+import Image from "next/image";
+import { Check, PlugZap } from "lucide-react";
 
-import { ArrowLeft, ArrowRight, Check, PlugZap } from "lucide-react";
-import { useState } from "react";
+type Crm = { name: string; logo?: string; alt?: string; wordmark?: string };
 
-const crms = [
-  { name: "Nuerovas workspace", short: "nuerovas", description: "A private-label customer workspace configured around your business." },
-  { name: "HubSpot", short: "hubspot", description: "A clear CRM for contacts, deals, marketing, and service." },
-  { name: "Salesforce", short: "salesforce", description: "Flexible customer operations for growing teams." },
-  { name: "Zoho CRM", short: "zoho", description: "Practical sales workflows with room to expand." },
-  { name: "ServiceTitan", short: "service\ntitan", description: "Connect the customer journey to field-service operations." },
-  { name: "Jobber", short: "jobber", description: "Keep quotes, clients, jobs, and follow-up moving." },
-  { name: "Housecall Pro", short: "housecall\npro", description: "Bring web inquiries and scheduling closer together." },
-  { name: "Custom setup", short: "your\nCRM", description: "We can evaluate the tools you already rely on." },
+const crms: Crm[] = [
+  { name: "Nuerovas workspace", logo: "/brand/nuerovas-orbit-mark.png", alt: "Nuerovas" },
+  { name: "HubSpot", logo: "/brand/crm/hubspot.svg", alt: "HubSpot" },
+  { name: "Salesforce", wordmark: "salesforce" },
+  { name: "Zoho CRM", logo: "/brand/crm/zoho.svg", alt: "Zoho" },
+  { name: "ServiceTitan", wordmark: "service\ntitan" },
+  { name: "Jobber", wordmark: "jobber" },
+  { name: "Housecall Pro", wordmark: "housecall\npro" },
 ];
 
 export function CrmCarousel() {
-  const [active, setActive] = useState(0);
-  const current = crms[active];
-
-  function move(direction: number) {
-    setActive((index) => (index + direction + crms.length) % crms.length);
-  }
+  const marqueeItems = [...crms, ...crms];
 
   return (
-    <div className="mt-10">
-      <div className="flex items-end justify-between gap-5">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-deep">Compatible CRM ecosystems</p>
-          <p className="mt-2 text-sm text-muted">Bring your own platform or let us set one up for you.</p>
-        </div>
-        <div className="hidden gap-2 sm:flex">
-          <button type="button" onClick={() => move(-1)} className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-ink transition hover:border-blue hover:text-blue" aria-label="Previous CRM">
-            <ArrowLeft aria-hidden className="h-4 w-4" />
-          </button>
-          <button type="button" onClick={() => move(1)} className="grid h-11 w-11 place-items-center rounded-lg border border-line bg-white text-ink transition hover:border-blue hover:text-blue" aria-label="Next CRM">
-            <ArrowRight aria-hidden className="h-4 w-4" />
-          </button>
-        </div>
+    <div className="relative mt-10 overflow-hidden rounded-xl border border-line bg-white py-7 sm:py-9">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-28" aria-hidden />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-28" aria-hidden />
+      <div className="crm-marquee flex w-max items-center gap-4 opacity-65" aria-hidden="true">
+        {marqueeItems.map((crm, index) => (
+          <div key={`${crm.name}-${index}`} className="flex h-24 w-48 shrink-0 items-center justify-center rounded-lg border border-line/80 bg-paper px-6 text-ink sm:w-56">
+            {crm.logo ? (
+              <Image src={crm.logo} width={crm.name === "Nuerovas workspace" ? 56 : 38} height={crm.name === "Nuerovas workspace" ? 56 : 38} alt={crm.alt ?? crm.name} className="max-h-12 w-auto object-contain" />
+            ) : (
+              <span className="whitespace-pre-line text-center font-display text-xl font-bold leading-[0.9] tracking-[-0.04em] text-ink">{crm.wordmark}</span>
+            )}
+          </div>
+        ))}
       </div>
-
-      <div className="mt-5 overflow-hidden">
-        <div className="flex gap-3 transition-transform duration-200 ease-out" style={{ transform: `translateX(-${active * 263}px)` }} aria-live="polite">
-          {crms.map((crm, index) => (
-            <button
-              key={crm.name}
-              type="button"
-              onClick={() => setActive(index)}
-              className={`flex min-h-36 w-[250px] max-w-[calc(100vw-40px)] shrink-0 flex-col justify-between rounded-xl border p-5 text-left transition ${index === active ? "border-blue bg-blue-soft shadow-soft" : "border-line bg-white hover:border-blue/50"}`}
-              aria-pressed={index === active}
-            >
-              <span className={`whitespace-pre-line font-display text-2xl font-bold leading-[0.9] ${index === active ? "text-blue-deep" : "text-ink"}`}>{crm.short}</span>
-              <span>
-                <span className="block text-sm font-semibold text-ink">{crm.name}</span>
-                <span className="mt-1 block text-xs leading-5 text-muted">{crm.description}</span>
-              </span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-5 flex flex-col gap-5 border-t border-line pt-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="relative z-20 mx-5 mt-7 flex flex-col gap-5 rounded-xl border border-blue/20 bg-blue-soft/95 p-5 shadow-soft backdrop-blur sm:mx-auto sm:max-w-3xl sm:flex-row sm:items-center sm:justify-between sm:p-6">
         <div className="flex items-start gap-3">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-blue-soft text-blue-deep"><PlugZap aria-hidden className="h-4 w-4" /></span>
-          <p className="max-w-xl text-sm leading-6 text-muted"><span className="font-semibold text-ink">{current.name} integration:</span> We map the lead details, notifications, follow-up, and booking steps your business actually needs.</p>
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white text-blue-deep"><PlugZap aria-hidden className="h-4 w-4" /></span>
+          <p className="max-w-xl text-sm leading-6 text-muted"><span className="font-semibold text-ink">We integrate the systems behind your customer journey.</span> Bring your existing CRM, or let Nuerovas set up a private-label workspace with automations, AI support, callbacks, and booking workflows ready for your team.</p>
         </div>
-        <div className="flex items-center gap-2 text-xs font-semibold text-success"><Check aria-hidden className="h-4 w-4" /> Human-reviewed setup</div>
+        <div className="flex shrink-0 items-center gap-2 text-xs font-semibold text-success"><Check aria-hidden className="h-4 w-4" /> Human-reviewed setup</div>
       </div>
     </div>
   );
