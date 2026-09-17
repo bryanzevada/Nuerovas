@@ -42,7 +42,7 @@ body {
   }
 
   .section-title {
-    @apply mt-4 text-3xl font-semibold leading-tight text-ink sm:text-4xl;
+    @apply mt-4 text-3xl font-medium leading-tight text-ink sm:text-4xl;
   }
 
   .button-primary {

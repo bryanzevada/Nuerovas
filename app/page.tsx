@@ -1,6 +1,5 @@
 import {
   ArrowRight,
-  BellRing,
   Bot,
   CalendarCheck,
   Check,
@@ -111,85 +110,67 @@ export default function Home() {
 function Hero() {
   return (
     <section className="overflow-hidden border-b border-line bg-paper">
-      <div className="section-shell grid gap-14 py-16 lg:grid-cols-[1.04fr_0.86fr] lg:items-center lg:py-24">
-        <div className="max-w-3xl">
-          <p className="eyebrow">For local service businesses</p>
-          <h1 className="mt-5 text-4xl font-semibold leading-[1.04] text-ink sm:text-5xl lg:text-6xl">
-            Turn more inquiries into booked work.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-            Give customers clear answers, respond to new leads faster, and keep every opportunity
-            moving without adding more repetitive work to your day.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href={siteConfig.bookingUrl} className="button-primary">
-              <CalendarCheck aria-hidden className="h-4 w-4" />
-              {siteConfig.cta.primary}
-            </Link>
-            <Link href="#how-it-works" className="button-secondary">
-              See the process
-              <ArrowRight aria-hidden className="h-4 w-4" />
-            </Link>
+      <div className="section-shell pb-8 pt-16 lg:pb-10 lg:pt-20">
+        <div className="grid gap-8 lg:grid-cols-[1.18fr_0.72fr] lg:items-end lg:gap-16">
+          <div>
+            <p className="eyebrow">For local service businesses</p>
+            <h1 className="mt-5 max-w-5xl text-5xl font-medium leading-[0.98] text-ink sm:text-6xl lg:text-7xl">
+              Turn more inquiries into booked work.
+            </h1>
           </div>
-          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
-            {["Clear scope", "No long-term contract", "Human support"].map((item) => (
-              <span key={item} className="flex items-center gap-2">
-                <CircleCheck aria-hidden className="h-4 w-4 text-blue" />
-                {item}
-              </span>
-            ))}
+          <div className="border-l border-line pl-6 lg:pb-1">
+            <p className="text-lg leading-8 text-muted">
+              Give customers clear answers, respond to new leads faster, and keep every opportunity
+              moving without adding more repetitive work to your day.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <Link href={siteConfig.bookingUrl} className="button-primary">
+                <CalendarCheck aria-hidden className="h-4 w-4" />
+                {siteConfig.cta.primary}
+              </Link>
+              <Link href="#how-it-works" className="button-secondary">
+                See the process
+                <ArrowRight aria-hidden className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
-        <ConversionPreview />
+        <figure className="relative mt-11">
+          <div className="relative aspect-[4/3] min-h-[360px] overflow-hidden sm:aspect-[16/9] lg:aspect-[16/6]">
+            <Image
+              src="/media/local-service-workday.webp"
+              alt="Home service professional reviewing a customer request beside a service van"
+              fill
+              priority
+              sizes="(min-width: 1280px) 1216px, calc(100vw - 40px)"
+              className="object-cover object-[58%_48%]"
+            />
+          </div>
+          <figcaption className="grid gap-4 border border-t-0 border-line bg-white px-5 py-4 sm:absolute sm:bottom-5 sm:left-5 sm:right-5 sm:grid-cols-[0.8fr_1fr] sm:items-center sm:border-0 sm:bg-paper/95 sm:backdrop-blur">
+            <div>
+              <p className="text-sm font-semibold text-ink">Built for the middle of a real workday.</p>
+              <p className="mt-1 text-xs leading-5 text-muted">Customers get a clear response while your team keeps moving.</p>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-muted sm:justify-end">
+              {["Inquiry", "Acknowledgement", "Right details", "Booking"].map((item, index) => (
+                <span key={item} className="flex items-center gap-3">
+                  {index > 0 ? <ArrowRight aria-hidden className="h-3.5 w-3.5 text-warm" /> : null}
+                  {item}
+                </span>
+              ))}
+            </div>
+          </figcaption>
+        </figure>
+        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
+          {["Clear scope", "No long-term contract", "Human support"].map((item) => (
+            <span key={item} className="flex items-center gap-2">
+              <CircleCheck aria-hidden className="h-4 w-4 text-blue" />
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
-  );
-}
-
-function ConversionPreview() {
-  const events = [
-    { icon: MessageSquareText, title: "New inquiry", detail: "Estimate request received", time: "9:41" },
-    { icon: Zap, title: "Reply sent", detail: "Customer knows what happens next", time: "9:41" },
-    { icon: BellRing, title: "Team notified", detail: "Lead details delivered", time: "9:42" },
-    { icon: CalendarCheck, title: "Visit requested", detail: "Thursday afternoon", time: "9:44" },
-  ];
-
-  return (
-    <div className="relative">
-      <div className="absolute -left-6 top-10 hidden h-24 w-1 bg-warm lg:block" />
-      <div className="border border-line bg-white shadow-soft">
-        <div className="flex items-center justify-between border-b border-line px-5 py-4">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-blue-deep">Lead activity</p>
-            <h2 className="mt-1 text-base font-semibold text-ink">One inquiry, handled clearly</h2>
-          </div>
-          <span className="flex items-center gap-2 text-xs font-medium text-muted">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" /> Live
-          </span>
-        </div>
-        <div className="divide-y divide-line">
-          {events.map((event, index) => {
-            const Icon = event.icon;
-            return (
-              <div key={event.title} className="grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 px-5 py-4">
-                <span className={`grid h-10 w-10 place-items-center ${index === 3 ? "bg-warm-soft text-warm" : "bg-blue-soft text-blue-deep"}`}>
-                  <Icon aria-hidden className="h-5 w-5" />
-                </span>
-                <span>
-                  <span className="block text-sm font-semibold text-ink">{event.title}</span>
-                  <span className="mt-0.5 block text-xs text-muted">{event.detail}</span>
-                </span>
-                <span className="text-xs tabular-nums text-muted">{event.time}</span>
-              </div>
-            );
-          })}
-        </div>
-        <div className="border-t border-line bg-ink px-5 py-4 text-white">
-          <p className="text-sm font-semibold">The customer gets momentum.</p>
-          <p className="mt-1 text-xs leading-5 text-white/65">Your team gets the context needed to follow through.</p>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -204,7 +185,7 @@ function CustomerProblems() {
     <section className="bg-white py-16 sm:py-20">
       <div className="section-shell">
         <div className="max-w-2xl">
-          <p className="eyebrow">Less friction for your customers</p>
+          <p className="eyebrow">01 / Less friction for your customers</p>
           <h2 className="section-title">Make it easier to choose you, reach you, and hear back.</h2>
         </div>
         <div className="mt-10 grid border-y border-line md:grid-cols-3">
@@ -226,7 +207,7 @@ function Outcomes() {
     <section className="bg-paper py-16 sm:py-20" id="services">
       <div className="section-shell">
         <div className="max-w-2xl">
-          <p className="eyebrow">What gets better</p>
+          <p className="eyebrow">02 / What gets better</p>
           <h2 className="section-title">A simpler customer experience from first click to follow-up.</h2>
         </div>
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
@@ -269,7 +250,7 @@ function HowItWorks() {
     <section className="bg-white py-16 sm:py-20" id="how-it-works">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.62fr_1fr] lg:gap-16">
         <div>
-          <p className="eyebrow">How it works</p>
+          <p className="eyebrow">03 / How it works</p>
           <h2 className="section-title">Start with the bottleneck, not the technology.</h2>
           <p className="mt-5 text-base leading-7 text-muted">The first conversation is about your customers and daily workflow. The tools come after the problem is clear.</p>
         </div>
@@ -292,7 +273,7 @@ function CustomerJourney() {
     <section className="border-y border-line bg-ink py-16 text-white sm:py-20" id="ai-assistants">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.82fr_1fr] lg:items-center">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-warm-soft">Support without guesswork</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-warm-soft">04 / Support without guesswork</p>
           <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">Helpful answers, with a person always in reach.</h2>
           <p className="mt-5 max-w-xl text-base leading-7 text-white/68">An AI website assistant can answer approved questions, collect lead details, and guide visitors to booking. It never invents prices, policies, availability, or guarantees.</p>
           <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -329,7 +310,7 @@ function Pricing() {
     <section className="bg-paper py-16 sm:py-20" id="pricing">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-start">
         <div>
-          <p className="eyebrow">Straightforward investment</p>
+          <p className="eyebrow">05 / Straightforward investment</p>
           <h2 className="section-title">Start with a better website. Improve it as you grow.</h2>
           <p className="mt-5 text-base leading-7 text-muted">A focused first version with ongoing support, without a long-term commitment.</p>
         </div>
@@ -366,7 +347,7 @@ function Faq() {
     <section className="bg-white py-16 sm:py-20" id="faq">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.55fr_1fr] lg:gap-16">
         <div>
-          <p className="eyebrow">Common questions</p>
+          <p className="eyebrow">06 / Common questions</p>
           <h2 className="section-title">What you may want to know first.</h2>
         </div>
         <div className="border-t border-line">
@@ -390,7 +371,7 @@ function Contact() {
     <section className="border-t border-line bg-paper py-16 sm:py-20" id="contact">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.76fr_1fr] lg:items-start">
         <div>
-          <p className="eyebrow">Free workflow review</p>
+          <p className="eyebrow">07 / Free workflow review</p>
           <h2 className="section-title">Find the simplest improvement worth making first.</h2>
           <p className="mt-5 max-w-xl text-base leading-7 text-muted">Share where leads slow down or customers get stuck. You will leave with a clearer view of what to fix now, what can wait, and what does not need automation at all.</p>
         </div>
@@ -421,6 +402,10 @@ function Footer() {
         <div className="flex flex-col justify-between gap-3 border-t border-white/12 pt-6 text-xs text-white/50 sm:flex-row">
           <p>Copyright {new Date().getFullYear()} Nuerovas. All rights reserved.</p>
           <div className="flex gap-5"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
+        </div>
+        <div className="flex items-end gap-4 overflow-hidden border-t border-white/12 pt-8">
+          <Image src="/brand/nuerovas-mark.svg" width={76} height={76} alt="" className="mb-1 hidden sm:block" />
+          <p className="text-5xl font-medium leading-none text-white sm:text-7xl lg:text-9xl">Nuerovas</p>
         </div>
       </div>
     </footer>
