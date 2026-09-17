@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         ink: "#071B4D",
         muted: "#526077",
+        success: "#16865B",
         line: "#DCE4F0",
         paper: "#F7F9FC",
         panel: "#ffffff",
