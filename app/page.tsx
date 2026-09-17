@@ -110,20 +110,20 @@ export default function Home() {
 function Hero() {
   return (
     <section className="overflow-hidden border-b border-line bg-paper">
-      <div className="section-shell pb-8 pt-16 lg:pb-10 lg:pt-20">
+      <div className="section-shell pb-2 pt-10 sm:pt-14 lg:pt-16">
         <div className="grid gap-8 lg:grid-cols-[1.18fr_0.72fr] lg:items-end lg:gap-16">
           <div>
             <p className="eyebrow">For local service businesses</p>
-            <h1 className="mt-5 max-w-5xl text-5xl font-medium leading-[0.98] text-ink sm:text-6xl lg:text-7xl">
+            <h1 className="mt-4 max-w-5xl text-4xl font-medium leading-[1.02] text-ink sm:mt-5 sm:text-6xl lg:text-7xl lg:leading-[0.98]">
               Turn more inquiries into booked work.
             </h1>
           </div>
-          <div className="border-l border-line pl-6 lg:pb-1">
-            <p className="text-lg leading-8 text-muted">
+          <div className="border-l border-line pl-5 lg:pb-1 lg:pl-6">
+            <p className="text-base leading-7 text-muted sm:text-lg sm:leading-8">
               Give customers clear answers, respond to new leads faster, and keep every opportunity
               moving without adding more repetitive work to your day.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
               <Link href={siteConfig.bookingUrl} className="button-primary">
                 <CalendarCheck aria-hidden className="h-4 w-4" />
                 {siteConfig.cta.primary}
@@ -135,24 +135,26 @@ function Hero() {
             </div>
           </div>
         </div>
-        <figure className="relative mt-11">
-          <div className="relative aspect-[4/3] min-h-[360px] overflow-hidden sm:aspect-[16/9] lg:aspect-[16/6]">
-            <Image
-              src="/media/local-service-workday.webp"
-              alt="Home service professional reviewing a customer request beside a service van"
-              fill
-              priority
-              sizes="(min-width: 1280px) 1216px, calc(100vw - 40px)"
-              className="object-cover object-[58%_48%]"
-            />
-          </div>
-          <figcaption className="grid gap-4 border border-t-0 border-line bg-white px-5 py-4 sm:absolute sm:bottom-5 sm:left-5 sm:right-5 sm:grid-cols-[0.8fr_1fr] sm:items-center sm:border-0 sm:bg-paper/95 sm:backdrop-blur">
+      </div>
+
+      <figure className="relative mt-8 h-[330px] w-full overflow-hidden sm:mt-10 sm:h-[460px] lg:h-[52vh] lg:min-h-[500px] lg:max-h-[620px]">
+        <Image
+          src="/media/local-service-workday.webp"
+          alt="Home service professional reviewing a customer request beside a service van"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[60%_48%] opacity-90 sm:object-[58%_48%]"
+        />
+        <div className="absolute inset-0 bg-ink/20" aria-hidden />
+        <div className="section-shell absolute inset-0 flex items-end pb-5 sm:pb-7">
+          <figcaption className="grid w-full gap-4 border border-white/15 bg-ink/82 px-5 py-4 text-white shadow-soft backdrop-blur-md sm:grid-cols-[0.8fr_1fr] sm:items-center sm:px-6 sm:py-5">
             <div>
-              <p className="text-sm font-semibold text-ink">Built for the middle of a real workday.</p>
-              <p className="mt-1 text-xs leading-5 text-muted">Customers get a clear response while your team keeps moving.</p>
+              <p className="text-sm font-semibold text-white">Built for the middle of a real workday.</p>
+              <p className="mt-1 text-xs leading-5 text-white/62">Customers get a clear response while your team keeps moving.</p>
             </div>
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-muted sm:justify-end">
-              {["Inquiry", "Acknowledgement", "Right details", "Booking"].map((item, index) => (
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-white/70 sm:justify-end">
+              {["Inquiry", "Response", "Right details", "Booking"].map((item, index) => (
                 <span key={item} className="flex items-center gap-3">
                   {index > 0 ? <ArrowRight aria-hidden className="h-3.5 w-3.5 text-warm" /> : null}
                   {item}
@@ -160,8 +162,11 @@ function Hero() {
               ))}
             </div>
           </figcaption>
-        </figure>
-        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
+        </div>
+      </figure>
+
+      <div className="section-shell py-5 sm:py-6">
+        <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted">
           {["Clear scope", "No long-term contract", "Human support"].map((item) => (
             <span key={item} className="flex items-center gap-2">
               <CircleCheck aria-hidden className="h-4 w-4 text-blue" />

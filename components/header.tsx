@@ -12,14 +12,14 @@ export function Header() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/92 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 text-white backdrop-blur">
       <nav
         aria-label="Primary navigation"
         className="section-shell flex min-h-16 items-center justify-between gap-4"
       >
         <Link href="#" className="flex items-center gap-2.5" onClick={closeMenu} aria-label="Nuerovas home">
-          <Image src="/brand/nuerovas-mark.svg" width={34} height={34} alt="" priority />
-          <span className="text-base font-semibold text-ink">{siteConfig.name}</span>
+          <Image src="/brand/nuerovas-mark.svg" width={34} height={34} alt="" priority className="ring-1 ring-white/20" />
+          <span className="text-base font-semibold text-white">{siteConfig.name}</span>
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
@@ -27,14 +27,14 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted transition hover:text-ink"
+              className="text-sm font-medium text-white/68 transition hover:text-white"
             >
               {item.label}
             </Link>
           ))}
           <Link
             href={siteConfig.bookingUrl}
-            className="inline-flex items-center bg-blue px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-deep"
+            className="inline-flex items-center bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:bg-blue-soft"
           >
             {siteConfig.cta.primary}
           </Link>
@@ -42,7 +42,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center border border-line bg-panel lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center border border-white/20 bg-white/5 text-white transition hover:bg-white/10 lg:hidden"
           aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((value) => !value)}
@@ -52,13 +52,13 @@ export function Header() {
       </nav>
 
       {isOpen ? (
-        <div className="border-t border-line bg-panel lg:hidden">
+        <div className="border-t border-white/10 bg-ink lg:hidden">
           <div className="section-shell flex flex-col gap-1 py-4">
             {siteConfig.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-2 py-3 text-base font-medium text-ink"
+                className="border-b border-white/8 px-2 py-3.5 text-base font-medium text-white"
                 onClick={closeMenu}
               >
                 {item.label}
@@ -66,7 +66,7 @@ export function Header() {
             ))}
             <Link
               href={siteConfig.bookingUrl}
-              className="mt-2 bg-blue px-4 py-3 text-center text-sm font-semibold text-white"
+              className="mt-3 bg-white px-4 py-3.5 text-center text-sm font-semibold text-ink"
               onClick={closeMenu}
             >
               {siteConfig.cta.primary}
