@@ -613,7 +613,7 @@ function Footer() {
       <div className="section-shell flex flex-col gap-8">
         <div className="flex flex-col justify-between gap-7 sm:flex-row sm:items-start">
           <div className="flex items-center gap-3">
-            <Image src="/brand/nuerovas-orbit-mark.png" width={34} height={34} alt="" className="bg-white" />
+            <Image src="/brand/nuerovas-logo.png" width={34} height={34} alt="Nuerovas" className="object-contain" />
             <div><p className="font-semibold uppercase tracking-[0.08em]">Nuerovas</p><p className="mt-0.5 text-xs text-white/55">Websites and practical automation</p></div>
           </div>
           <nav aria-label="Footer navigation" className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/68">
@@ -628,7 +628,7 @@ function Footer() {
           <div className="flex gap-5"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link></div>
         </div>
         <div className="flex items-end gap-4 overflow-hidden border-t border-white/12 pt-8">
-          <Image src="/brand/nuerovas-orbit-mark.png" width={76} height={76} alt="" className="mb-1 hidden bg-white sm:block" />
+          <Image src="/brand/nuerovas-logo.png" width={76} height={76} alt="Nuerovas" className="mb-1 hidden object-contain sm:block" />
           <p className="text-5xl font-medium uppercase leading-none tracking-[-0.04em] text-white sm:text-7xl lg:text-9xl">Nuerovas</p>
         </div>
       </div>

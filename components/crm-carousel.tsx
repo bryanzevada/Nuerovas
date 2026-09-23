@@ -3,7 +3,7 @@ import Image from "next/image";
 type Crm = { name: string; logo?: string; alt?: string; wordmark?: string };
 
 const crms: Crm[] = [
-  { name: "Nuerovas workspace", logo: "/brand/nuerovas-orbit-mark.png", alt: "Nuerovas" },
+  { name: "Nuerovas workspace", logo: "/brand/nuerovas-logo.png", alt: "Nuerovas" },
   { name: "HubSpot", logo: "/brand/crm/hubspot.svg", alt: "HubSpot" },
   { name: "Salesforce", wordmark: "salesforce" },
   { name: "Zoho CRM", logo: "/brand/crm/zoho.svg", alt: "Zoho" },

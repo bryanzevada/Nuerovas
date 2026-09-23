@@ -18,7 +18,9 @@ export function Header() {
         className="section-shell flex min-h-16 items-center justify-between gap-4"
       >
         <Link href="#" className="flex items-center gap-2.5" onClick={closeMenu} aria-label="Nuerovas home">
-          <Image src="/brand/nuerovas-orbit-mark.png" width={38} height={38} alt="" priority className="rounded-full bg-white ring-1 ring-white/20" />
+          <span className="grid h-11 w-11 place-items-center rounded-xl bg-white p-1.5 shadow-sm ring-1 ring-white/25">
+            <Image src="/brand/nuerovas-logo.png" width={38} height={38} alt="Nuerovas" priority className="h-full w-full object-contain" />
+          </span>
           <span className="text-base font-semibold uppercase tracking-[0.08em] text-white">{siteConfig.name}</span>
         </Link>
 
