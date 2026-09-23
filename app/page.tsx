@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ContactForm } from "@/components/contact-form";
+import { VotelForm } from "@/components/votel-form";
 import { CrmCarousel } from "@/components/crm-carousel";
 import { Header } from "@/components/header";
 import { siteConfig } from "@/lib/site-config";
@@ -560,7 +560,7 @@ function Contact() {
           <p className="mt-5 max-w-xl text-base leading-7 text-muted">Share where leads slow down or customers get stuck. You will leave with a clearer view of what to fix now, what can wait, and what does not need automation at all.</p>
         </div>
         <div className="border border-line bg-white p-6 shadow-soft sm:p-8">
-          <ContactForm />
+          <VotelForm />
         </div>
       </div>
     </section>
