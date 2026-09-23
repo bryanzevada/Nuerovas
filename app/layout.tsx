@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 
@@ -41,6 +42,54 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${spaceGrotesk.variable} bg-paper font-sans text-ink antialiased`}>
         {children}
+        <Script id="nuerovas-votel-widget" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){
+  w[l]=w[l]||[];
+  w[l].config = {
+    "id": "widget-1790124194165-83jo7qwvo",
+    "name": "Nuerovas AI Assistant",
+    "theme": "light",
+    "enabled": true,
+    "autoOpen": false,
+    "fontSize": 17,
+    "metadata": {},
+    "position": "bottom-right",
+    "agentName": "AI Assistant",
+    "chatWidth": "medium",
+    "createdAt": "2026-09-23T00:43:14.165Z",
+    "customCSS": "",
+    "textColor": "#0d0d0d",
+    "updatedAt": "2026-09-23T01:33:07.500Z",
+    "buttonText": "Chat with us",
+    "fontFamily": "Montserrat",
+    "widgetMode": "chat-voice",
+    "companyName": "Nuerovas",
+    "snapPadding": 0,
+    "targetDivId": "",
+    "primaryColor": "#ffffff",
+    "snapToScreen": false,
+    "mountStrategy": "append",
+    "labelFontWeight": 700,
+    "placeholderText": "Continue conversation",
+    "customFontFamily": "",
+    "customJavaScript": "",
+    "gradientEndColor": "#009dff",
+    "shortcutMessages": [],
+    "gradientStartColor": "#ffffff",
+    "allowTranscriptToggle": true,
+    "enableVisitorIdentity": true,
+    "avatarUrl": "/api/upload/bc08d450-be6e-4551-89ba-cf8ef0977038/image/83203832-62ed-4b75-96e7-b910e30e0407.png",
+    "agentId": "f515b5f0-518a-427b-b63c-62a3f66aa5b0",
+    "apiUrl": "https://app.votel.ai",
+    "stid": "bc08d450-be6e-4551-89ba-cf8ef0977038"
+  };
+  var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s);
+  j.async=true;
+  j.src='https://app.votel.ai/widget/embed.js?id='+i;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','VotelWidget','widget-1790124194165-83jo7qwvo');`}
+        </Script>
       </body>
     </html>
   );
